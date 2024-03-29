@@ -1,0 +1,128 @@
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+\fi
+
+\usepackage[magyar]{babel} % Alapértelmezés szerint utoljára definiált nyelv lesz aktív, de később külön beállítjuk az aktív nyelvet.
+
+\usepackage{combelow}
+\usepackage{newunicodechar}
+
+\newunicodechar{Ș}{\cb{S}}
+\newunicodechar{ș}{\cb{s}}
+\newunicodechar{Ț}{\cb{T}}
+\newunicodechar{ț}{\cb{t}}
+
+\usepackage{xcolor}
+
+\usepackage{cmap}
+\usepackage{amsfonts,amsmath,amssymb} % Mathematical symbols.
+\usepackage[ruled,boxed,resetcount,linesnumbered]{algorithm2e} % For pseudocodes.
+\def\algorithmcfname{algoritmus}
+\makeatletter
+\renewcommand{\fnum@algocf}{\AlCapSty{\AlCapFnt\thealgocf.\nobreakspace\algorithmcfname}}
+\makeatother
+
+\usepackage{booktabs} % For publication quality tables for LaTeX
+\usepackage{graphicx}
+\usepackage{sidecap}
+
+%\usepackage{fancyhdr}
+%\usepackage{lastpage}
+
+\usepackage{anysize}
+\usepackage{sectsty}
+\usepackage{setspace}  % Ettol a tablazatok, abrak, labjegyzetek maradnak 1-es sorkozzel!
+
+% For hyperlinks in the generated document. 
+\usepackage{color}
+\usepackage{listings} % For source code snippets.
+
+%\usepackage[amsmath,thmmarks]{ntheorem} % Theorem-like environments.
+
+\usepackage[hang]{caption}
+\usepackage{scrextend}
+
+\usepackage{indentfirst}
+\usepackage{pdfpages}
+
+\usepackage{xfrac}
+\usepackage{eurosym}
+
+\usepackage{fullpage} % a margokra is lehessen irni
+
+\newcommand{\vigyazat}{\marginpar{\textcolor{red}{\emph{Vigy\'azat!}}}}
+
+\usepackage{tikz}
+\usepackage{verbatim}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{positioning}
+\tikzset{main node/.style={circle,fill=blue!20,draw,minimum size=1cm,inner sep=0pt},
+}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_sharp}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize\ttfamily,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinelanguage{TypeScript}{
+  keywords={const, let, var, if, else, while, for, switch, case, break, return},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, interface, type, export, async, await},
+  ndkeywordstyle=\color{purple}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{gray}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+% Set TypeScript code style
+\lstset{
+  language=TypeScript,
+  basicstyle=\small\ttfamily,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\tiny\color{codegray},
+  stepnumber=1,
+  numbersep=8pt,
+  backgroundcolor=\color{backcolour},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2,
+  captionpos=b,
+  breaklines=true,
+  breakatwhitespace=true,
+  breakautoindent=true,
+  linewidth=\textwidth,
+  literate={-}{-}1
+}

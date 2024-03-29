@@ -1,0 +1,14 @@
+\select@language {magyar} \contentsline {chapter}{\numberline {1}Bevezető}{10}{chapter.1}%
+\select@language {magyar} \contentsline {chapter}{\numberline {2}Felhasznált technológiák}{11}{chapter.2}%
+\select@language {magyar} \contentsline {section}{\numberline {2.1}A szerver}{11}{section.2.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {2.1.1}A rétegelt architektúra előnyei}{12}{subsection.2.1.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {2.1.2}Az adatbázis}{14}{subsection.2.1.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {2.1.3}A Cronotus API}{14}{subsection.2.1.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {2.1.4}Hitelesítés és Engedélyezés}{15}{subsection.2.1.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {2.1.5}Globális hibakezelés}{16}{subsection.2.1.5}%
+\select@language {magyar} \contentsline {section}{\numberline {2.2}A felhasználói felület}{17}{section.2.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {2.2.1}Felhasznált technológia}{17}{subsection.2.2.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {2.2.2}Kommunikáció a szerverrel}{17}{subsection.2.2.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {2.2.3}Oldalak közötti navigálás}{18}{subsection.2.2.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {2.2.4}Munkamenetkezelés JWT tokenekkel}{19}{subsection.2.2.4}%
+\select@language {magyar} \contentsline {chapter}{Köszönetnyilvánítás}{21}{chapter*.12}%
