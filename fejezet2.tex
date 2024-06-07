@@ -1,151 +1,237 @@
-%----------------------------------------------------------------------------
-\chapter{Matematikai modellek, ahol fontos az időtényező}
-%----------------------------------------------------------------------------
+\chapter{A Cronotus felhasználói felülete}
 
-Ebben a fejezetben szeretnék bemutatni egy olyan matematikai modellt, ahol nagyon fontos az időtényező. Ezzel is szeretném kihangsúlyozni azt, hogy nem mindegy, hogy egy adott differenciálegyenletet vagy rendszert milyen gyorsan tudunk megoldani és megválaszolni a problémával kapcsolatban felmerülő kérdéseket. Ezek a modellek nem csak arra szolgálhatnak, hogy a valóságot reprezentálják vagy leírják. Nagyon sok esetben a legfontosabb szerepük az, hogy különböző előrejelzéseket és szimulációkat tudjunk végezni velük.
+\section{A fogadó oldal és a regisztráció}
 
-\section{Leukémia modellje}
+A webalkalmazásra való látogatás során a felhasználókat egy egyszerű felület fogadja, ahol lehetőségük van új felhasználó regisztrálására,
+vagy belépésre egy már meglévő felhasználóval. Ez látható a \ref{fig:landing_page}-es ábrán.
 
-Az általam választott modell egy napjainkban ismert és eléggé súlyos betegség, az úgynezett \textbf{leukémia} modellje \cite{LeukemiaModell2}, \cite{LeukemiaModell}. Mit is jelent pontosan a leukémia? A leukémia (fehérvérűség vagy vérrák) a vérképző rendszer rosszindulatú daganatos megbetegedése, melyre a vérképzésben résztvevő csontvelői sejtek kontrollálatlan szaporodása jellemző. A keletkező tumorsejtek kiszorítják a normális vérképző sejteket, és megjelennek a vérben, kóros fehérvérsejtszám emelkedést okozva \cite{LeukemiaMeghatarozas}.
-\newline
-
-A \cite{LeukemiaModell2}, \cite{LeukemiaModell} cikkekben leírtak alapján felírhatjuk a normál leukémia dinamikus rendszerének modelljét, amely egy differenciálegyenlet rendszer lesz. Tudjuk, hogy minden $ t $ időpillanatban az őssejtek populációját két csoportra oszthatjuk fel (tehát a rendszerünkben is két egyenlet lesz): a normál, vagyis egészséges őssejtek populációjára, melyet $ x(t) $-vel fogunk jelölni és a leukémiás őssejtek populációjára, melyet $ y(t) $-vel jelölünk. Ezek alapján a rendszerünk a következőképpen alakul:
-\begin{align} \label{eq:leukemiaEgyenlet}
-	\begin{cases}
-		\dfrac{dx}{dt} = x'(t) = \dfrac{a}{1+b_{1}x+b_{2}y}x-cx \\ \\
-		\dfrac{dy}{dt} = y'(t) = \dfrac{A}{1+B(x+y)}y-Cy \\
-	\end{cases}
-\end{align}
-
-A fenti modellünk egyenleteiben láthatunk pár ismeretlen paramétert, melyeket a következőkben ismertetek:
-\begin{itemize}
-	\item $ a $ - nem korlátozott növekedési ráta normál őssejtek esetén
-	\item $ A $ - nem korlátozott növekedési ráta leukémiás őssejtek esetén
-	\item $ b_{1} $, $ b_{2} $, $ B $ - a csontvelő mikrokörnyezeti érzékenységének együtthatói
-	\item $ c $ - normál őssejtek halálozási rátája
-	\item $ C $ - leukémiás őssejtek elhalási rátája
-\end{itemize}
-
-Beláthatjuk, hogy mindkét őssejt populúcióban a növekedési ráta nagyobb, mint az elhalási ráta, téhát
-\begin{align*}
-	a > c \quad \textrm{és} \quad A > C.
-\end{align*}
-
-A normál és leukémiás őssejtek különböző módon járulnak hozza a normál őssejtek növekedési rátájának csökkenéséhez. Ezt az első egyenletben úgy tudjuk biztosítani, hogy különböző értékeket használunk a $ b_{1} $ és $ b_{2} $ paraméterek esetében. Annak érdekében, hogy utánozni tudjuk a leukémiás sejtek előnyét kisebb értéket veszünk fel a környezeti érzékenységi együtthatójának ($ B $). Az elmondottak alapján tehát feltételezzük, hogy
-\begin{align*}
-	b_{1}\geq b_{2}\geq B.
-\end{align*}
-
-Továbbá rendszerünknek két nem zéró egyensúlyi állapota van abban az esetben, ha $ b_{1} = b_{2} $ ezek $ (d, 0) $ és $ (0, D) $, ahol
-\begin{align*}
-	d = \dfrac{1}{b_{1}}\left(\dfrac{a}{c}-1\right) \quad \textrm{és} \quad D = \dfrac{1}{B}\left(\dfrac{A}{C}-1\right)
-\end{align*}
-$ d $ és $ D $ a normális és leukémiás őssejtek homeosztatikus mennyiségét jelenti. Ezekre a paraméterekre igazak a következő egyenlőtlenségek:
-\begin{itemize}
-	\item Ha $ D < d $, akkor normál, egészséges állapot áll fenn.
-	\item Ha $ D > d $, akkor akut leukémiás állapot áll fenn.
-\end{itemize}
-\pagebreak
-
-A továbbiakban nézzünk meg egy konkrét példát a \cite{LeukemiaModell2} cikkben leírtak alapján. Az említett cikkből tudjuk, hogy egy egészséges felnőttnek van megközelítőleg $ d = 2*10^{4} $ db őssejtje. Emellett tudjuk azt is, hogy az őssejtek $ 200 $ naponta osztódnak és $ 500 $ naponta halnak meg. Ezek alapján már fel tudjuk írni a normál őssejtek növekedési és elhalási rátáját: $ a = 1/200 $ és $ c = 1/500 $. A csontvelő mikrokörnyezeti érzékenységének együtthatóit a következőképpen kaphatjuk meg: $  b_{1} = (a/c-1)/d = 0.75*10^{-4}$ és  $  b_{2} = 0.38*10^{-4}$. A további három paraméter $ A $, $ B $ és $ C $ minden páciensnél más és más értékű, azonban $ B $ -ről tudjuk, hogy körülbelül egyenlő a $ b_{2} $ értékének felével, tehát $ B = b_{2}/2 = 0.19*10^{-4} $. \\ \\
-Első tesztesetünkben a további paraméterek értékei:
-\begin{itemize}
-	\item $ A = 0.01 $ és $ C = 0.009 $
-	\item $ x(0) = 1.5 * 10^{4} $ és $ y(0) = 5 * 10^{3} $ kezdeti értékek
-\end{itemize}
-A fenti paraméterekkel megoldjuk a \eqref{leukemiaEgyenlet}. egyenletrendszert így a normál, egészséges állapot grafikonját kapjuk:
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.95\textwidth] {figures/leukemia_normal_allapot}
-	\caption{Normál, egészséges állapot.}
+\begin{figure}[h]
+	\includegraphics[width=0.5\textwidth]{images/login_page.png}
+	\includegraphics[width=0.5\textwidth]{images/login_2.png}
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{images/login_3.png}
+	\end{center}
+	\caption{A fogadó oldal}
+	\label{fig:landing_page}
 \end{figure}
 
-Második tesztesetünkben az úgynevezett krónikus mieloid leukémia (CML) állapotot szeretnénk szemléltetni, melynek bemenő paraméterei:
-\begin{itemize}
-	\item $ A = 0.01 $ és $ C = 0.007 $
-	\item $ x(0) = 2 * 10^{4} $ és $ y(0) = 10^{3} $ kezdeti értékek
-\end{itemize}
-A fenti paraméterekkel újra megoldjuk a \eqref{leukemiaEgyenlet}. egyenletrendszert és a következő grafikont kapjuk:
-\pagebreak
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.95\textwidth] {figures/leukemia_CML_allapot}
-	\caption{Krónikus mieloid leukémia (CML) állapot.}
+\newpage
+
+
+A webalkalmazás igyekszik egy játékos és barátságos hangnemben megnyilvánulni a felhasználók számára. Ez megfigyelhető a regisztrációs folyamaton
+is, ami nem egy megszokott űrlap kitöltéséből áll, hanem egyszerű nyelvezettel megfogalmazott kérdések sorozatával segíti a felhasználókat
+a regisztráció során. \ref{fig:registration_seq}-es ábra
+
+\begin{figure}[h]
+	\includegraphics[width=0.5\textwidth]{images/register_1.png}
+	\includegraphics[width=0.5\textwidth]{images/register_2.png}
+	\includegraphics[width=0.5\textwidth]{images/register_3.png}
+	\includegraphics[width=0.5\textwidth]{images/register_4.png}
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{images/register_5.png}
+	\end{center}
+	\caption{A regisztrációs folyamat}
+	\label{fig:registration_seq}
 \end{figure}
 
-Utolsó tesztesetünkben pedig az úgynevezett akut mieloid leukémia (AML) állapotot szeretnénk szemléltetni, melynek bemenő paraméterei a következőek:
-\begin{itemize}
-	\item $ A = 0.01 $ és $ C = 0.004 $
-	\item $ x(0) = 2 * 10^{4} $ és $ y(0) = 1 $ kezdeti értékek
-\end{itemize}
-Az új paraméterekkel harmadszor is megoldjuk a \eqref{leukemiaEgyenlet}. egyenletrendszert:
-\begin{figure}[!ht]
+\newpage
+
+\section{A profil oldal}
+
+A regisztráció alkalmával megadott információk megtekinthetők a profil oldalon. Itt lehetőség van arra is, hogy a felhasználó megváltoztassa a személyes
+információit, illetve profil és borítóképét is. Ez látható a \ref{fig:profile_page}-as ábrán.
+
+\begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.95\textwidth] {figures/leukemia_AML_allapot}
-	\caption{Akut mieloid leukémia (AML) állapot.}
+	\includegraphics[width=0.6\textwidth]{images/profile_1.png}
+	\caption{A profil oldal}
+	\label{fig:profile_page}
 \end{figure}
 
-\section{Hullámmozgás modellje}
+A Profil oldalon való ``Edit Profile''-ra való kattintással előhozható egy felület, ahol a felhasználó megváltoztathatja személyes információit,
+illetve lehetősége van arra is, hogy profil és borítóképet változtasson, hogy egyéni stílusát tükrözze a felületen. Ez látható a 
+\ref{fig:profile_edit_page}-es ábrán.
 
-Az előző modellünk egyenletei közönséges differenciálegyenletek (ODE) voltak. Ezzel szemben a hullámmozgás modelljének leírásánál a parciális differenciálegyenleteket (PDE) és azok gyakorlati fontosságát szeretném ismertetni. Modellünk elméleti alapjai megtalálhatóak a következő könyvben és jegyzetben \cite{HullamegyenletKonyv}, \cite{HullammozgasLink}.
-
-Modellünk megértése érdekében képzeljünk el egy végtelen hosszú és rugalmas húrt, amely hullámmozgást végez, ez lehet egy kötél hullámzása, megpengetett gitárhúr vagy akár egy dob membránja. A továbbiakban kiváncsiak vagyunk arra, hogy a húr mozgatás közben milyen alakot vesz fel. Ennek leírásához szükségünk van néhány feltételezésre:
-\begin{itemize}
-	\item Feltételezzük, hogy a húr csak kis kitéréseket végez a függőleges síkban.
-	\item A húr hosszának változása elhanyagolható, ezáltal a húrban állandó $ T $
-	nagyságú érintőirányú feszítő erő ébred.
-	\item Jellemezzük a húr pontjait az $ x \in \mathbb R$ koordinátával, és jelölje $\mu$ a húr (konstans) lineáris sűrűségét (ez azt jelenti, hogy teszőleges $l$ hosszú húrdarab tömege $\mu l$).
-	\item Legyen $ u(x,t) $ függvény, amely a húr $ x $ koordinátájú pontjának kitérését ($ y $ tengely irányú) írja le $ t $ időpillanatban.
-	\item Végül feltételezzük, hogy a húrra $ F(x,t) $ sűrűségű $ y $ tengely irányú külső erő hat, ami azt jelenti, hogy tetszőleges végtelen kicsi $ [x, \delta x] $ húrdarabra $ F \delta x$ erő hat.
-\end{itemize}
-
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.5\textwidth] {figures/hurdarabra_hato_erok}
-	\caption{Húrdarabra ható erők.}
-	\caption*{\textbf{Forrás}: \cite{PDEKonyv}}
+\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/profile_edit.png}
+		\includegraphics[width=0.6\textwidth]{images/profile_2.png}
+	\caption{A profil szerkesztése}
+	\label{fig:profile_edit_page}
 \end{figure}
 
-Ezután vizsgáljuk meg a húr $ x $ és $ x + \delta x$ közötti $ x $ hosszúságú végtelen kicsi darabját. Tegyük fel, hogy az $ x $ végpontban az érintő $\theta$ szöget zár be az $ x $ tengellyel, míg az $ x + \delta x$ pontban az érintő szöge $ \theta + \delta \theta $ lesz. Mindezek ismeretében a húrdarabra ható erők függőleges komponenseire felírva Newton második törvényét a következőt kapjuk:
-\begin{align} \label{eq:Newton}
-	T sin(\theta + \delta \theta) - T sin(\theta) + F(x,t) \delta x = (\mu \delta x)a_{y},
-\end{align}
-ahol $ a_{y} $ a húrdarab $ y $ tengely irányú gyorsulása, amely a húrdarab infinitezimális hossza miatt megközelítőleg $ \partial^{2}_{t} u(x,t) $.
+A továbbiakban lehetőségünk van a felhasználónk törlésére is. A ``Delete Profile'' gomb megnyomásával előhozható egy prompt, 
+amit ha továbbra is megerősítünk, akkor egyszerűen törölhetjük a felhasználónkat, s minden vele kapcsolatos információt, eseményt. [\ref{fig:delete_profile}-ös ábra]
 
-Másrészt, tudjuk, hogy a húr csak kis kitéréseket végez, ezért kicsi a szög, így alkalmazhatóak a $ sin(\delta \theta) \approx \delta \theta$, $ cos(\delta \theta) \approx 1$ és \newline $ sin(\theta + \delta \theta) = sin(\theta) cos(\delta \theta) + cos(\theta) sin(\delta \theta) \approx sin \theta + \delta \theta$ közelítések, amelyekkel a \eqref{Newton} egyenlet a következőképpen alakul:
-\begin{align} \label{eq:Newton}
-	T \delta \theta + F(x,t) \delta x = (\mu \delta x) \partial^{2}_{t} u(x,t).
-\end{align}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/delete_profile.png}
+	\caption{A profil törlése}
+	\label{fig:delete_profile}
+\end{figure}
 
-Vegyük észre, hogy $ \theta $ az érintő szöge, ezért $ tg \theta = \partial_{x} u$, amit $ x $ szerint deriváva az összetett függvény deriválása alapján $ (1/cos^{2} \theta) \partial_{x} \theta = \partial^{2}_{x} u $.
-Ebből újra a $ cos(\delta \theta) \approx 1$ közelítést használva, illetve a $ \partial_{x} \theta $ deriváltat a $ \delta \theta / \delta x $ különbségi hányadossal helyettesítve azt kapjuk, hogy $ \delta \theta \approx  (\partial^{2}_{x} u) \delta x$. \newline Vegül ezeket visszahelyettesítve a legutóbbi egyenletbe a következőket kapjuk:
-\begin{align} \label{eq:Newton}
-	(T \delta x) \partial^{2}_{x} u + F \delta x = (\mu \delta x) \partial^{2}_{t} u \\
-	\partial^{2}_{t} u - \dfrac{T}{\mu} \partial^{2}_{x} u = \dfrac{F}{\mu}
-\end{align}
-Ezt az egyenletet nevezik \textbf{egydimenziós hullámegyenletnek}.
-\newline
+Az oldal listázza az általunk szervezett sporteseményeket is. Mivel egy újonnan létrehozott felhasználónk van, még nem hoztunk létre egyetlen
+sporteseményt sem, így a lista üres. Ilyenkor ezt jelzi nekünk az oldal, illetve ennek megfelelően jelenít meg egy gombot, amivel átirányít
+bennünket arra a felületre, ahol létrehozhatunk új sporteseményeket. [\ref{fig:profile_page_2}-os ábra]
 
-Ha tudjuk, hogy a húr hullámmozgást végez, akkor $ u(x,t) $ olyan kétszer folytonosan differenciálható függvény kell legyen, amely kielégíti az alábbi parciális differenciálegyenletet:
-\begin{align}
-	u''_{tt} - c^{2}u''_{xx} = 0,
-\end{align}
-ahol $ c $ egy ismert konstans érték. Az egyenlet megoldásához ebben az esetben is szükségünk van a kezdeti feltételekre, amelyek a húr helyzete a kezdeti időpillanatban ($ t = 0 $ - ban) és az adott pontokhoz tartozó pillanatnyi sebességek lesznek:
-\begin{align*}
-	u(x,0) = f(x), \\
-	u'(x,0) = g(x),
-\end{align*}
-ahol $ f(x) $ és $ g(x) $ ismert, folytonosan differenciálható függvények lesznek.
-\\
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/events_by_you_profile.png}
+	\caption{Általunk szervezett sportesemények listázása a profil oldalon}
+	\label{fig:profile_page_2}
+\end{figure}
 
-A következőkben legyen $ u(x,t) = F(x+ct)$, ahol az $ F $ tetszőlegesen választott kétszer differenciálható függvény. Ebben az esetben
-\begin{align*}
-	u''_{xx} = F'' \quad \textrm{és} \quad u''_{tt} = c^{2}F'',
-\end{align*}
-tehát $ u $ függvény megoldása a hullámegyenletnek. Az előző esethez hasonlóan, legyen $ u(x,t) = G(x-ct)$, ahol $ G $ szintén egy tetszőlegesen választott kétszer differenciálható függvény. Ugyanúgy, mint az előző esetben itt is az $ u $ függvény megoldása lesz a hullámegyenletnek.
+\section{A sportesemény böngésző}
 
-A látottak alapján elmondható (számításokkal be is bizonyítható), hogy a hullámmozgás parciális differenciálegyenlet általános megoldása
-\begin{align}
-	u(x,t) = F(x+ct)+G(x-ct),
-\end{align}
-ahol $ F $ és $ G $ folytonosan differenciálható függvények.
+A sportesemény böngésző, azaz a ``Browser'' oldal két fő részre osztható. A ``See what others are up to'' fül alatt listázhatjuk az összes
+létrehozott sporteseményt, míg a ``Create a new event'' lehetőséget ad arra, hogy létrehozhassuk egy új, saját eseményt.
+Ez látható a \ref{fig:browser_page}-es ábrán is.
+
+\newpage
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/browser_page.png}
+	\caption{A sportesemény böngésző}
+	\label{fig:browser_page}
+\end{figure}
+
+Egy új esemény létrehozása során egy egyszerű űrlapot kell kitöltenie a felasználónak. Itt meglévő sportok közül választhat, az esemény témájaként.
+Megfelelő információk, sport, dátum és résztvevőszám megadása után a ``Submit'' gombra kattintás hozhatja létre az általa kívánt eseményt.
+Ez a folyamat látható a \ref{fig:create_event}-as ábrán. Az esemény sikeres létrehozása után megfigyelhetjük, hogy az esemény megjelenik a sportesemény böngészőben is. Itt rákattintás segítségével előhozható
+egy részletesebb nézet. [\ref{fig:new_event_created}-es ábra]
+
+\begin{figure}[h]
+	\includegraphics[width=0.5\textwidth]{images/create_event_1.png}
+	\includegraphics[width=0.5\textwidth]{images/create_event_2.png}
+	\includegraphics[width=0.5\textwidth]{images/create_event_3.png}
+	\includegraphics[width=0.5\textwidth]{images/create_event_4.png}
+	\caption{Esemény létrehozása}
+	\label{fig:create_event}
+\end{figure}
+
+\newpage
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/new_event_created.png}
+	\caption{Az újonnan létrehozott esemény a sportesemény böngészőben}
+	\label{fig:new_event_created}
+\end{figure}
+
+Az esemény részletes megjelenítésében látható minden általunk megadott információt. Az eseméy azt is mutatja, hogy ki az esemény szervezője. A szerző nevére
+kattitnva megtekinthető egy rövid leírás a szervező profiljáról. Ez látható a \ref{fig:event_creator}-es ábrán is.
+
+\begin{figure}[h]
+	\includegraphics[width=0.5\textwidth]{images/sports_event_creator.png}
+	\includegraphics[width=0.5\textwidth]{images/sports_event_creator_profile_view.png}
+	\caption{Az esemény szervezőjének megjelenítése}
+	\label{fig:event_creator}
+\end{figure}
+
+Egy esemény létrehozásakor az esemény szervezője automatikusan feliratkozik erre. Amennyiben ezt vissza szeretné vonni, a
+``Resign me from this event'' gomb segítségével megteheti. Ilyenkor megfigyelhető, hogy az eseményre jelentkezett egyének száma egyel csökken.
+Ez megfigyelhető a \ref{fig:resign_from_event}-es ábrán.
+
+\begin{figure}[h]
+	\includegraphics[width=0.5\textwidth]{images/resign_from_event_1.png}
+	\includegraphics[width=0.5\textwidth]{images/resign_from_event_2.png}
+	\caption{Egy eseményről való leiratkozás}
+	\label{fig:resign_from_event}
+\end{figure}
+
+Szervezőként adhatunk hozzá képeket is az általunk szervezett eseményekhez. Ezt az ``Add some pictures'' gombra való kattintással tehetjük meg.
+Ez felhoz egy ablakot, majd itt a képek kiválasztása után az oldal frissül és láthatóak lesznek az általunk kiválasztott képek. Ez a folyamat
+látható a \ref{fig:add_pictures_event}-es ábrán.
+
+\newpage
+
+\begin{figure}[ht]
+	\includegraphics[width=0.5\textwidth]{images/add_pictures_event.png}
+	\includegraphics[width=0.5\textwidth]{images/add_pictures_event_2.png}
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{images/add_pictures_event_3.png}
+	\end{center}
+	\caption{Képek hozzáadása az eseményhez}
+	\label{fig:add_pictures_event}
+\end{figure}
+
+Egy esemény szervezője törölhet is képeket az eseményről. Ezt a kép jobb alsó sarkában megjelenő törlés ikonra kattintással teheti meg. Ilyenkor az oldal 
+tartalma automatikusan frissül, s a törölni kívánt kép eltűnik az esemény oldaláról. Ez megfigyelhető a \ref{fig:delete_image_event}-as ábrán.
+
+\begin{figure}[h]
+	\includegraphics[width=0.5\textwidth]{images/delete_image_event_1.png}
+	\includegraphics[width=0.5\textwidth]{images/delete_image_event_2.png}
+	\caption{Kép törlése az eseményről}
+	\label{fig:delete_image_event}
+\end{figure}
+
+Végső soron a szervező törölheti is az általa szervezett eseményt. Ezt a ``Delete this event'' gombra való kattintással teheti meg, ahogyan a \ref{fig:delete_event_details}-es ábrán is látható.
+Ilyenkor egy megerősítendő ablak jelenik meg, amiben ha a ``Yes, delete this event!'' gombra kattintunk, az esemény véglegesen törlése kerül.
+Ezután az oldal átirányít bennünket a böngésző felületre, ahol már nem fogjuk látni az általunk törölt eseményt.
+
+\newpage
+
+\begin{figure}[ht]
+	\includegraphics[width=0.5\textwidth]{images/delete_this_event_1.png}
+	\includegraphics[width=0.5\textwidth]{images/delete_this_event_2.png}
+	\caption{Esemény törlése}
+	\label{fig:delete_event_details}
+\end{figure}
+
+\subsection{Sportesemények szűrése}
+
+A sportesemények böngészése során a felhasználónak lehetősége van kölünböző szűrők használatára.
+A szűrők segítségével meg lehet határozni egy időintervallumot, amely alatt az eseményeket meg szeretnénk tekinteni, illetve kiválasztható egy
+specifikus sport is, amely alapján lehetősége van a felhasználóknak szűrni az eseményeket.
+
+A szűrők használatához előszőr kattintsunk a ``Looking for something specific?'' fülre:
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/filtering_events_1.png}
+	\caption{A szűrőket tartalmazó fül előhozása}
+	\label{fig:filter_1}
+\end{figure}
+
+\newpage
+
+\begin{figure}[ht]
+	\includegraphics[width=0.5\textwidth]{images/filtering_events_2.png}
+	\includegraphics[width=0.5\textwidth]{images/filtering_events_3.png}
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{images/filtering_events_4.png}
+	\end{center}
+	\caption{A szűrők beállítása}	
+	\label{fig:applying_filters}
+\end{figure}
+
+Amint az látható a \ref{fig:applying_filters}-es ábrán, a szűrők beállítása után az oldal automatikusan frissül, és a beállított szűrőknek megfelelően
+jeleníti meg az eseményeket. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/filtering_events_5.png}
+	\caption{A szűrt események}
+	\label{fig:filtered_events}
+\end{figure}
+
+Ahogyan a \ref{fig:filtered_events}-es ábrán is látható, a szűrők alkalmazása egyetlen sporteseményt eredményezett.
+
+\newpage
+\section{Lapszámozás - Pagination}
+
+Annak érdekében, hogy jó teljesítménnyel működhessen a webalkalmazás, szükséges az ú.n. \textit{Pagination}\cite{paginationdocs}, azaz az adatbázisból lekért sportesemények
+szeletekre osztása. Ez azt jelenti, hogy nem fog mindeni felhasználó minden létező eseményt megkapni egy kérés során, hanem csak egy limitált számot,
+melyek szekvenciális továbbá lekérhetőek.
+
+Az alkalmazás automatikusan 5-ös szeletekre osztja a sporteseményeket, ezek között a lap alján van lehetősége a felhasználónak a navigáálásra. Ez látható a \ref{fig:pagination}-os ábrán.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/pagination_1.png}
+	\caption{A lapozás}
+	\label{fig:pagination}
+\end{figure}
+
+Itt követehető az aktuális lap száma, illetve lehetőség van tovább haladásra a következő lapra, amennyiben ez létezik.

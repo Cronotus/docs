@@ -1,0 +1,128 @@
+\begin{thebibliography}{10}
+
+\bibitem{authflowsdocs}
+Authentikációs folyamatok - auth0 dokumentáció.
+\newblock \url{https://auth0.com/docs/flows}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{csharpdocs}
+C\# hivatalos dokumentáció.
+\newblock \url{https://docs.microsoft.com/en-us/dotnet/csharp/}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{codefirstapproachdocs}
+Code first approach - microsoft dokumentáció.
+\newblock
+  \url{https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/workflows/new-database}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{crudoperationdocs}
+Crud műveletek - microsoft áttekintés.
+\newblock \url{https://learn.microsoft.com/en-us/iis-administration/api/crud}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{dtodocsmicrosoft}
+Dto - microsoft dokumentáció.
+\newblock
+  \url{https://learn.microsoft.com/en-us/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{entityframeworkdocs}
+Entity framework hivatalos dokumentáció.
+\newblock \url{https://docs.microsoft.com/en-us/ef/}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{httpsdocs}
+Http - mozilla dokumentáció.
+\newblock \url{https://developer.mozilla.org/en-US/docs/Web/HTTP}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{inversionofcontroldocs}
+Inversion of control - microsoft dokumentáció.
+\newblock
+  \url{https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{javascriptdocsmozilla}
+Javascript - mozilla dokumentáció.
+\newblock \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{jsondocs}
+Json hivatalos dokumentáció.
+\newblock \url{https://www.json.org/json-en.html}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{jwtdocs}
+Jwt - json web token áttekintés.
+\newblock \url{https://jwt.io/introduction/}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{dotnetnocs}
+.net hivatalos dokumentáció.
+\newblock \url{https://docs.microsoft.com/en-us/dotnet/}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{onionarchitecturedocs}
+Onion architecture - microsoft dokumentáció.
+\newblock
+  \url{https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{paginationdocs}
+Pagination - techtarget áttekintés.
+\newblock \url{https://www.techtarget.com/whatis/definition/pagination}.
+\newblock [Hozzáférés ideje: 2024. 06. 07].
+
+\bibitem{reactdocs}
+React hivatalos dokumentáció.
+\newblock \url{https://devdocs.io/react/}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{reactrouterdocs}
+React router hivatalos dokumentáció.
+\newblock \url{https://reactrouter.com/}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{relationaldatabasedocs}
+Relational database - digitalocean áttekintés.
+\newblock \url{https://docs.digitalocean.com/glossary/relational-db/}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{restfuldocs}
+Restful api hivatalos dokumentáció.
+\newblock \url{https://restfulapi.net/}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{singlepageapplicationdocs}
+Single page application - microsoft dokumentáció.
+\newblock
+  \url{https://learn.microsoft.com/en-us/entra/identity-platform/index-spa}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{sqlserverdocs}
+Sql server hivatalos dokumentáció.
+\newblock \url{https://docs.microsoft.com/en-us/sql/}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{swrdocs}
+Swr hivatalos dokumentáció.
+\newblock \url{https://swr.vercel.app/}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{typescriptdocs}
+Typescript hivatalos dokumentáció.
+\newblock \url{https://www.typescriptlang.org/docs/}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{vitedocs}
+Vite hivatalos dokumentáció.
+\newblock \url{https://devdocs.io/vite/}.
+\newblock [Hozzáférés ideje: 2024. 04. 14].
+
+\bibitem{warner2017yielding}
+S.~Warner, E.~Sparvero, S.~Shapiro, and A.~Anderson.
+\newblock Yielding healthy community with sport?
+\newblock {\em Journal of Sport for Development}, 5(8):41--52, 2017.
+
+\end{thebibliography}

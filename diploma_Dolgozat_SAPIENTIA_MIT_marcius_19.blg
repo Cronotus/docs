@@ -1,0 +1,88 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: diploma_Dolgozat_SAPIENTIA_MIT_marcius_19.aux
+Reallocating 'name_of_file' (item size: 1) to 22 items.
+A level-1 auxiliary file: content/titlepage.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: content/titlepage-ro.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: content/titlepage-en.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: abstract.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: bevezeto.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: fejezet0.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: fejezet1.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: fejezet2.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 5 items.
+Database file #1: cite.bib
+Warning--to sort, need author or key in reactdocs
+Warning--to sort, need author or key in typescriptdocs
+Warning--to sort, need author or key in dotnetnocs
+Warning--to sort, need author or key in csharpdocs
+Warning--to sort, need author or key in entityframeworkdocs
+Warning--to sort, need author or key in sqlserverdocs
+Warning--to sort, need author or key in restfuldocs
+Warning--to sort, need author or key in onionarchitecturedocs
+Warning--to sort, need author or key in inversionofcontroldocs
+Warning--to sort, need author or key in relationaldatabasedocs
+Warning--to sort, need author or key in codefirstapproachdocs
+Warning--to sort, need author or key in crudoperationdocs
+Warning--to sort, need author or key in httpsdocs
+Warning--to sort, need author or key in dtodocsmicrosoft
+Warning--to sort, need author or key in jsondocs
+Warning--to sort, need author or key in authflowsdocs
+Warning--to sort, need author or key in jwtdocs
+Warning--to sort, need author or key in javascriptdocsmozilla
+Warning--to sort, need author or key in singlepageapplicationdocs
+Warning--to sort, need author or key in vitedocs
+Warning--to sort, need author or key in swrdocs
+Warning--to sort, need author or key in reactrouterdocs
+Warning--to sort, need author or key in paginationdocs
+You've used 24 entries,
+            2118 wiz_defined-function locations,
+            584 strings with 6853 characters,
+and the built_in function-call counts, 4263 in all, are:
+= -- 428
+> -- 46
+< -- 0
++ -- 32
+- -- 8
+* -- 150
+:= -- 513
+add.period$ -- 72
+call.type$ -- 24
+change.case$ -- 76
+chr.to.int$ -- 0
+cite$ -- 47
+duplicate$ -- 172
+empty$ -- 555
+format.name$ -- 8
+if$ -- 1041
+int.to.chr$ -- 0
+int.to.str$ -- 24
+missing$ -- 1
+newline$ -- 123
+num.names$ -- 2
+pop$ -- 235
+preamble$ -- 1
+purify$ -- 52
+quote$ -- 0
+skip$ -- 121
+stack$ -- 0
+substring$ -- 139
+swap$ -- 24
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 96
+warning$ -- 23
+while$ -- 4
+width$ -- 26
+write$ -- 220
+(There were 23 warnings)
