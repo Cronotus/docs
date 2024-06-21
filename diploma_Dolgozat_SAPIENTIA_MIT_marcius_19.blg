@@ -17,6 +17,10 @@ Reallocating 'name_of_file' (item size: 1) to 13 items.
 A level-1 auxiliary file: fejezet1.aux
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 A level-1 auxiliary file: fejezet2.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: fejezet3.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: fejezet4.aux
 Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 5 items.
@@ -44,45 +48,46 @@ Warning--to sort, need author or key in vitedocs
 Warning--to sort, need author or key in swrdocs
 Warning--to sort, need author or key in reactrouterdocs
 Warning--to sort, need author or key in paginationdocs
-You've used 24 entries,
+Warning--to sort, need author or key in gitdocs
+You've used 25 entries,
             2118 wiz_defined-function locations,
-            584 strings with 6853 characters,
-and the built_in function-call counts, 4263 in all, are:
-= -- 428
-> -- 46
+            590 strings with 6976 characters,
+and the built_in function-call counts, 4426 in all, are:
+= -- 444
+> -- 47
 < -- 0
-+ -- 32
++ -- 33
 - -- 8
-* -- 150
-:= -- 513
-add.period$ -- 72
-call.type$ -- 24
-change.case$ -- 76
+* -- 156
+:= -- 531
+add.period$ -- 74
+call.type$ -- 25
+change.case$ -- 79
 chr.to.int$ -- 0
-cite$ -- 47
-duplicate$ -- 172
-empty$ -- 555
+cite$ -- 49
+duplicate$ -- 179
+empty$ -- 578
 format.name$ -- 8
-if$ -- 1041
+if$ -- 1082
 int.to.chr$ -- 0
-int.to.str$ -- 24
+int.to.str$ -- 25
 missing$ -- 1
-newline$ -- 123
+newline$ -- 127
 num.names$ -- 2
-pop$ -- 235
+pop$ -- 243
 preamble$ -- 1
-purify$ -- 52
+purify$ -- 54
 quote$ -- 0
-skip$ -- 121
+skip$ -- 128
 stack$ -- 0
-substring$ -- 139
-swap$ -- 24
+substring$ -- 144
+swap$ -- 25
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 96
-warning$ -- 23
+type$ -- 100
+warning$ -- 24
 while$ -- 4
-width$ -- 26
-write$ -- 220
-(There were 23 warnings)
+width$ -- 27
+write$ -- 228
+(There were 24 warnings)

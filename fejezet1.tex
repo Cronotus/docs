@@ -1,6 +1,5 @@
 \lstset{style=c_sharp}
-
-%----------------------------------------------------------------------------
+  %----------------------------------------------------------------------------
 \chapter{Felhasznált technológiák}
 
 
@@ -91,11 +90,9 @@ A kliens oldalról kapott kérések mindegyikéhez csatolva van egy ilyen JWT to
 
 \subsection{Globális hibakezelés}
 
-Annak érdekében, hogy a kód átlátható és könnyen karbantartható legyen a hiba és kivételkezelést a projekt egy globális hibakezelő middlware segítéségvel oldja meg, mely részét képezi az application pipeline-nak, mely be lett mutatve a \ref{fig:pipeline}-ös ábán.
+Annak érdekében, hogy a kód átlátható és könnyen karbantartható legyen a hiba és kivételkezelést a projekt egy globális hibakezelő middlware segítéségvel oldja meg, mely részét képezi az application pipeline-nak.
 
 Ha ezt a kezelési módszert használjuk, akkor nincs szükség \textit{try - catch} kódblokkok használatára, hiszen ha valamilyen kivétel merül fel, akkor azt elég csak tovább dobni, majd a middleware automatikusan lekezeli. A kezelés során a middleware beállítja a visszatérítendő objektumba a fellépő hiba HTTP státuszkódját, majd a kiindulási pontból dobott hiba üzenetét, mindezt annak érdekében, hogy kliens oldalon könnyen olvasható legyen, hogy egyes hiba miből származhat.
-
-\newpage
 
 %----------------------------------------------------------------------------
 %----------------------------------------------------------------------------
@@ -124,8 +121,6 @@ Az alkalmazás GET metódusokra az SWR - Data Fetching\cite{swrdocs} könyvtárc
 
 A könyvtárcsomag lehetőséget biztosít arra is, hogy az adatlekéréssel kapcsolatos státuszokat kezeljük, például kérés alatt töltés ideje, illetve hibákat. Ezt egyszerűen megtehetjük a függvényhívás esetén, amint a \ref{lst:typescript_example}-es kódrészleten is látszik.
 
-\newpage
-
 \begin{lstlisting}[caption={SWR használata profil adatok lekérésére}, label={lst:typescript_example}]
 const { data: profileInfo, isLoading, error, mutate } = useProfile(userId!);
 
@@ -141,13 +136,15 @@ const { data: profileInfo, isLoading, error, mutate } = useProfile(userId!);
 
 A \ref{lst:typescript_example}-es ábrán látható, hogy abban az esetben, ha az adatok még lekérés alatt vannak, a komponens a ``ProfileTitleIsLoading'' komponenset tölti be, majd amint a a betöltés befejeződik, megjeleníti a betöltött adatokat.
 
-Amennyiben a szerverhez intézett HTTP kérés nem GET metódus, úgy az alkalmazás nem SWR-t használ, hanem egy egyszrű, dinamikusan felépített fetchert. Ez a fetcher függvény újrahasznosítható, így elég minden egyedi kérés esetében csak megadni a megfelelő adatokat, endpoint címet, és meghívni az ehhez tartozó fetchert. Ez a folyamat látható a \ref{fig:fetching_data_example}-os ábrán is.
+Amennyiben a szerverhez intézett HTTP kérés nem GET metódus, úgy az alkalmazás nem SWR-t használ, hanem egy egyszrű, dinamikusan felépített fetchert. Ez a fetcher függvény újrahasznosítható, így elég minden egyedi kérés esetében csak megadni a megfelelő adatokat, endpoint címet, és meghívni az ehhez tartozó fetchert.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{./images/fetchingData.png}
-    \caption{A profil oldallal kapcsolatos néhány kérés működése}
-    \label{fig:fetching_data_example}
+A \ref{fig:fetchingData}-os ábra szemlélteti néhány végpont egyszerűsített működését.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{./images/fetchingData.png}
+  \caption{Néhány endpoint működése}
+  \label{fig:fetchingData}
 \end{figure}
 
 \subsection{Oldalak közötti navigálás}
@@ -155,8 +152,6 @@ Amennyiben a szerverhez intézett HTTP kérés nem GET metódus, úgy az alkalma
 A webalkalmazáson való oldalak közötti navigációért a React Router\cite{reactrouterdocs} könyvtárcsomag felelős. Ez lehetővé teszi azt, hogy könnyen és zökkenőmentesen tudjunk oldalak között navigálni, illetve ennek során információt cserélni egyes oldalak, komponensek között.
 
 A React Router lehetővé teszi azt, hogy deklaráljunk minden létező oldalt egy ``Router'' komponensben, ahonnan aztán a Single Page Application dinamikusan cserélni tudja a pillanatynyilag megjelenített oldalt. Ez a deklarálási módszer látható a \ref{lst:router_component}-as kódrészletben.
-
-\newpage
 
 \begin{lstlisting}[caption={Route-ok deklarálása}, label={lst:router_component}]
 const Router = (props: { onLogout: () => void }) => {
@@ -185,15 +180,16 @@ A webalkalmazás szintjén ahhoz, hogy a Authentication és Authorization-el kap
 
 A lejárási idő a webalkalmazás szintjén fontos, mivel ennek függvényében lehet a munkamenetet követni. Abban az esetben ha egy token lejár, a felhasználó alap esetben arra van kérve, hogy jelentkezzen be újra. Ez azért hasznos, mert ha egy harmadik rosszindulatú fél meg is szerez egy ilyen tokent, csak limitált ideje van kárt tenni a rendszerben, esetünkben 10 perc.
 
-Ahhoz, hogy egy jó felhasználói élményt nyújtson a webalkalmazás, két féle tokent használunk. Van access token, illetve refresh token. Az access tokenek magukba foglalnak minden olyan információt és működési elvet, melyet a fentiekben tárgyaltunk. Azért, hogy egy access token lejártakor ne kelljen újra bejelentkeznie a felhasználóknak, refresh tokeneket használ az alkalmazás, melyek adatbázisban tárolva vannak minden felhasználó számára. Ezek segítségével új access tokent lehet generálni, így nem szükségeltetve az újboli bejelentkezést 10 percenként. Ezt a folyamatot szemlélteti a \ref{fig:jwt_standard_process}-es ábra is.
+Ahhoz, hogy egy jó felhasználói élményt nyújtson a webalkalmazás, két féle tokent használunk. Van access token, illetve refresh token. Az access tokenek magukba foglalnak minden olyan információt és működési elvet, melyet a fentiekben tárgyaltunk. Azért, hogy egy access token lejártakor ne kelljen újra bejelentkeznie a felhasználóknak, refresh tokeneket használ az alkalmazás, melyek adatbázisban tárolva vannak minden felhasználó számára. Ezek segítségével új access tokent lehet generálni, így nem szükségeltetve az újboli bejelentkezést 10 percenként.
 
-\newpage
+A \ref{fig:jwt_auth_process}-es ábra bemutatja a JWT tokenek segítségével vezetett munkamanetkezelés logikáját.
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{./images/jwt_auth_process.png}
-    \caption{Standard JWT kezelési folyamat a webalkalmazáson}
-    \label{fig:jwt_standard_process}
+  \centering
+  \includegraphics[width=\textwidth]{images/jwt_auth_process.png}
+  \caption{A JWT munkamenetkezelés folyamata}
+  \label{fig:jwt_auth_process}
 \end{figure}
-
 %----------------------------------------------------------------------------
+
+  

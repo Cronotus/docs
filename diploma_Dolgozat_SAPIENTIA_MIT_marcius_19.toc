@@ -12,14 +12,16 @@
 \select@language {magyar} \contentsline {subsection}{\numberline {3.1.3}A Cronotus API}{18}{subsection.3.1.3}%
 \select@language {magyar} \contentsline {subsection}{\numberline {3.1.4}Hitelesítés és Engedélyezés}{19}{subsection.3.1.4}%
 \select@language {magyar} \contentsline {subsection}{\numberline {3.1.5}Globális hibakezelés}{20}{subsection.3.1.5}%
-\select@language {magyar} \contentsline {section}{\numberline {3.2}A felhasználói felület}{21}{section.3.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.2.1}Felhasznált technológia}{21}{subsection.3.2.1}%
+\select@language {magyar} \contentsline {section}{\numberline {3.2}A felhasználói felület}{20}{section.3.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.1}Felhasznált technológia}{20}{subsection.3.2.1}%
 \select@language {magyar} \contentsline {subsection}{\numberline {3.2.2}Kommunikáció a szerverrel}{21}{subsection.3.2.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.2.3}Oldalak közötti navigálás}{22}{subsection.3.2.3}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.2.4}Munkamenetkezelés JWT tokenekkel}{23}{subsection.3.2.4}%
-\select@language {magyar} \contentsline {chapter}{\numberline {4}A Cronotus felhasználói felülete}{25}{chapter.4}%
-\select@language {magyar} \contentsline {section}{\numberline {4.1}A fogadó oldal és a regisztráció}{25}{section.4.1}%
-\select@language {magyar} \contentsline {section}{\numberline {4.2}A profil oldal}{27}{section.4.2}%
-\select@language {magyar} \contentsline {section}{\numberline {4.3}A sportesemény böngésző}{28}{section.4.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.3}Oldalak közötti navigálás}{21}{subsection.3.2.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.4}Munkamenetkezelés JWT tokenekkel}{22}{subsection.3.2.4}%
+\select@language {magyar} \contentsline {chapter}{\numberline {4}A Cronotus felhasználói felülete}{24}{chapter.4}%
+\select@language {magyar} \contentsline {section}{\numberline {4.1}A fogadó oldal és a regisztráció}{24}{section.4.1}%
+\select@language {magyar} \contentsline {section}{\numberline {4.2}A profil oldal}{26}{section.4.2}%
+\select@language {magyar} \contentsline {section}{\numberline {4.3}A sportesemény böngésző}{27}{section.4.3}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.3.1}Sportesemények szűrése}{32}{subsection.4.3.1}%
 \select@language {magyar} \contentsline {section}{\numberline {4.4}Lapszámozás - Pagination}{34}{section.4.4}%
+\select@language {magyar} \contentsline {chapter}{\numberline {5}A projekt menedzselése}{35}{chapter.5}%
+\select@language {magyar} \contentsline {section}{\numberline {5.1}Verziókezelés Git segítségével}{35}{section.5.1}%

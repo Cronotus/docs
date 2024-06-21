@@ -1,7 +1,6 @@
 \documentclass[12pt,a4paper,oneside]{report}             % Single-side
 %\documentclass[11pt,a4paper,twoside,openright]{report}  % Duplex
 
-
 \input{content/packages}
 
 %--------------------------------------------------------------------------------------
@@ -41,9 +40,9 @@
 \newcommand{\temavezetoAfokozatRo}{Lector universitar}
 \newcommand{\temavezetoAfokozatEn}{Lecturer}
 \newcommand{\temavezetoB}{} % Második konzulens neve; hagyd üresen, ha egy konzulensed van.
-\newcommand{\cimHu}{Cronotus} % Cím
-\newcommand{\cimRO}{Cronotus}
-\newcommand{\cimEN}{Cronotus}
+\newcommand{\cimHu}{Cronotus - Sportesemény koordináló webalkalmazás} % Cím
+\newcommand{\cimRO}{Cronotus - Aplicație web pentru coordonarea evenimentelor sportive}
+\newcommand{\cimEN}{Cronotus - Web application for organizing sporting events}
 \newcommand{\ev}{2024} %az aktualis ev
 
 \input{content/preamble.tex}
@@ -61,8 +60,10 @@
 	\include{content/titlepage}
 	\include{content/titlepage-ro}
 	\include{content/titlepage-en}
-	
-	\includepdf[pages={1}]{content/Declaratie.pdf}
+
+	\includepdf[pages={1}]{content/KMBT_215_04358.pdf}
+	\includepdf[pages={1}]{content/AbramSzilveszterLevente.pdf}
+
 	\include{abstract}
  
 % Tartalomjegyzek
@@ -71,25 +72,19 @@
 	\setcounter{page}{9}
 	\tableofcontents\vfill
 
+
 % A diplomadolgozat lenyegi resze
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 % ajánlott külön file-okba írni az egyes fejezeteket, ugyanis úgy jobban át lehet látni.
 
-
-
 	\include{bevezeto}
-
 	\include{fejezet0}
   \include{fejezet1}
   \include{fejezet2}
- %    \include{fejezet3}
-	% \include{fejezet3}
-	% \include{fejezet4}
-	% \include{fejezet5}
-	% \include{fejezet6}
-	% \include{osszefoglalo}
-
+	\include{fejezet3}
+	\include{fejezet4}
+ 
 % Koszonetnyilvanitas
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	% \include{acknowledgement}
@@ -106,9 +101,5 @@
 	\bibliographystyle{plain}
 	\bibliography{cite}
 	
-% Appendix
-%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	% \include{appendices}
-
 \label{page:last}
 \end{document}
