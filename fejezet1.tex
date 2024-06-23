@@ -1,4 +1,3 @@
-\lstset{style=c_sharp}
   %----------------------------------------------------------------------------
 \chapter{Felhasznált technológiák}
 
@@ -18,7 +17,7 @@ Ahhoz, hogy ezeket az adatokat a felhasználó elérhesse, a kliens és szerver 
 %----------------------------------------------------------------------------
 \section{A szerver}
 
-A szerver feladata az, hogy kiszolgálja a webalkalmazásról beérkező kéréseket. Ez a feladat alapszinten viszonylag könnyen elvégezhető lenne, viszont nem elég csak csupán elvégezni, hanem a legmegfelelőbb módon kell ezt véghez vinni. Fontos szem előtt tartani a biztonságot, kérésenkénti időt, illetve megbízhatóságot. Az első fontos döntés a szerverrel kapcsolatban az, hogy milyen architekturát valósít meg. A Cronotus esetében egy rétegelt architekturáról\cite{onionarchitecturedocs} beszélhetünk, mely három fő elemre bontja a szerver működését.
+A szerver feladata az, hogy kiszolgálja a webalkalmazásról beérkező kéréseket. Ez a feladat alapszinten viszonylag könnyen elvégezhető lenne, viszont nem elég csak csupán elvégezni, hanem a legmegfelelőbb módon kell ezt véghez vinni. Fontos szem előtt tartani a biztonságot, kérésenkénti időt, illetve megbízhatóságot. Az első fontos döntés a szerverrel kapcsolatban az, hogy milyen architekturát valósít meg. A Cronotus esetében egy rétegelt architektúrai felépítésről\cite{onionarchitecturedocs} beszélhetünk, mely három fő elemre bontja a szerver működését.
 
 \begin{figure}[h]
     \centering
@@ -29,7 +28,7 @@ A szerver feladata az, hogy kiszolgálja a webalkalmazásról beérkező kérés
 
 A három réteg a \ref{fig:server_onion_architecture}-es ábrán feltüntetett módon helyezkedik el. A legalsó szint a Domain, melynek mindössze annyi a feladata, hogy az adatbázissal kommunikáljon. Ezen a szinten történik meg az adatok kinyerése, vagy akár az alapszintű műveletek véghezvitele, például létrehozás, vagy törlés.
 
-A kör középpontjától kifele haladva a következő a Service réteg. Ez az a szint, amely a biznisz logikát végrehajta a kapott adatokon. Abban az esetben, ha a kliens oldal egy kérést küld valameny adat lekérésére, úgy a kéréshez szükséges eredmény ezen a szinten formálódik olyan alakba, amely megfelelő a fogyasztónak. A szint felelősége úgy is felfogható, mint egy tolmács, mely a kliens és Domain között működik. Főbb feladatai a komplex struktúrájú adatok egyszerű alakra és utasításokra bontása, illetve egyszerű adatok előkészítése és prezentálható formába szervezése a kliens számára.
+A kör középpontjától kifele haladva a következő a Service réteg. Ez az a szint, amely a biznisz logikát végre hajta a kapott adatokon. Abban az esetben, ha a kliens oldal egy kérést küld valamely adat lekérésére, úgy a kéréshez szükséges eredmény ezen a szinten formálódik olyan alakba, amely megfelelő a fogyasztónak. A szint felelősége úgy is felfogható, mint egy tolmács, mely a kliens és Domain között működik. Főbb feladatai a komplex struktúrájú adatok egyszerű alakra és utasításokra bontása, illetve egyszerű adatok előkészítése és prezentálható formába szervezése a kliens számára.
 
 A legfelső, a Presentation réteg feladata a fogyasztó irányába történő kérésekkel kapcsolatos visszajelzések megfelelő kezelése, illetve a Service rétegtől kapott adatok átirányítása a helyes HTTP kóddal.
 
@@ -54,7 +53,7 @@ A \ref{fig:sport_repo_usage_example}-as ábrán látható egy példa, mely a ré
 
 \subsection{Az adatbázis}
 
-A rendszer adatai egy Microsoft SQL Server relációs adatbázisban\cite{relationaldatabasedocs} vannak eltárolva. Mivel a rendszer személyes információkat tárol el a felhasználóiról, szükséges volt egy olyan adatbázist választani, mely megfelelő képpen tudja kezelni az egyes felhasználók és felhasználókhoz kötődő entitások közötti kapcsolatokat. Továbbá az is fontos, hogy biztonságosan legyenek az adatok tárolva. Mindezeket  figyelembe véve egy relációs adatbázis volt a legjobb választás. A konkrét döntés azért esett a Microsoft SQL Server termékre, mivel a szerver fő keretrendszere alapból Microsoft termék, így a Microsoft-készített adatbázis egy jó integrálhatósági lehetőségnek bizonyul. Továbbá a technológiák megegyezése elősegít a későbbi felhőbe való kitelpítésben is.
+A rendszer adatai egy Microsoft SQL Server relációs adatbázisban\cite{relationaldatabasedocs} vannak eltárolva. Mivel a rendszer személyes információkat tárol el a felhasználóiról, szükséges volt egy olyan adatbázist választani, mely megfelelő képpen tudja kezelni az egyes felhasználók és felhasználókhoz kötődő entitások közötti kapcsolatokat. Továbbá az is fontos, hogy biztonságosan legyenek az adatok tárolva. Mindezeket  figyelembe véve egy relációs adatbázis volt a legjobb választás. A konkrét döntés azért esett a Microsoft SQL Server termékre, mivel a szerver fő keretrendszere alapból Microsoft termék, így a Microsoft-készített adatbázis egy jó integrálhatósági lehetőségnek bizonyul. Továbbá a technológiák megegyezése elősegít a későbbi felhőbe való telpítésben is.
 
 Az adatbázis strukturális létrehozása a \textit{code first approach}\cite{codefirstapproachdocs} elv segítségével hajtódik végre, ahogyan a \ref{fig:code_first_approach}-es ábrán is látható. Az Entity Framework Core lehetővé teszi azt, hogy adatmodellek és adatmodellek közti kapcsolatok alapján migrációk segítségével változtassunk az adatbázis sémán, illetve az abba tartozó adatokon.
 
@@ -65,7 +64,7 @@ Az adatbázis strukturális létrehozása a \textit{code first approach}\cite{co
     \label{fig:code_first_approach}
 \end{figure}
 
-Technikailag megvizsgálva, a Code First Approach [\ref{fig:code_first_approach}-es ábra] az Entity Framework Core egyik hozománya, mely az ORM (Object Relational Mapper)\cite{codefirstapproachdocs} segítségével képes a \textit{DbContext} osztályon keresztül kapcsolatba lépni az adatbázissal, továbbá a \textit{RepositoryBase} absztrakt osztályon végrehatjtandó CRUD műveletek\cite{crudoperationdocs} segítségével tudja az itt tárolt entitásokat kezelni, törölni vagy újakat létrehozni.
+Technikailag megvizsgálva, a Code First Approach [\ref{fig:code_first_approach}-es ábra] az Entity Framework Core egyik hozománya, mely az ORM (Object Relational Mapper)\cite{codefirstapproachdocs} segítségével képes a \textit{DbContext} osztályon keresztül kapcsolatba lépni az adatbázissal, továbbá a \textit{RepositoryBase} absztrakt osztályon végrehajtandó CRUD műveletek\cite{crudoperationdocs} segítségével tudja az itt tárolt entitásokat kezelni, törölni vagy újakat létrehozni.
 
 \subsection{A Cronotus API}
 
@@ -86,11 +85,43 @@ Az rendszer JWT Tokenek\cite{jwtdocs} formájában kezeli a felhasználói munka
 
 Egy ilyen token fontos információkat tartalmaz, például felhasználói jogok, jogokhoz kapcsolódó id-k, illetve a token lejárati dátuma. 
 
-A kliens oldalról kapott kérések mindegyikéhez csatolva van egy ilyen JWT token, amit a rendszer egy kérés beérkeztekor dekódol, majd az innen kinyert információk segítségével megnézi, hogy érvényes-e a token, majd ellenőrzi, hogy a felhasználónak van-e joga végrehajtani a kívánt műveletet. Egy token élettartama 10 perc, ezután egy \textit{Refresh Token} segítségével a kliens újat kell kérjen. Ez a fajta viszonylag rövid szsavatossági idő egy fontos biztonsági intézkedés, mivel ha egy harmadik fél meg is tud szerezni egy ilyen érvényes tokent, akkor is csak maximum 10 perce van arra, hogy hozzáférése legyen a szerverhez. 
+A kliens oldalról kapott kérések mindegyikéhez csatolva van egy ilyen JWT token, amit a rendszer egy kérés beérkeztekor dekódol, majd az innen kinyert információk segítségével megnézi, hogy érvényes-e a token, majd ellenőrzi, hogy a felhasználónak van-e joga végre hajtani a kívánt műveletet. Egy token élettartama 10 perc, ezután egy \textit{Refresh Token} segítségével a kliens újat kell kérjen. Ez a fajta viszonylag rövid szavatossági idő egy fontos biztonsági intézkedés, mivel ha egy harmadik fél meg is tud szerezni egy ilyen érvényes tokent, akkor is csak maximum 10 perce van arra, hogy hozzáférése legyen a szerverhez. 
+
+\begin{lstlisting}[caption={Egy JWT token felépítése a szerver oldalon}, label={lst:create_token_example}]
+  public async Task<TokenDto> CreateToken(bool populateExp)
+        {
+            var signingCredentials = GetSigningCredentials();
+            var claims = await GetClaims();
+            var tokenOptions = GenerateTokenOptions(signingCredentials, claims);
+
+            var refreshToken = GenerateRefreshToken();
+            _user!.RefreshToken = refreshToken;
+
+            if (populateExp)
+            {
+                _user!.RefreshTokenExpiryTime = DateTime.Now.AddDays(7);
+            }
+
+            await _userManager.UpdateAsync(_user);
+            var accessToken = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+            return new TokenDto(accessToken, refreshToken); 
+        }
+\end{lstlisting}
+
+A \ref{lst:create_token_example}-es kódrészlet bemutatja azt a szerver oldali függvényt, amely segítségével létre lehet hozni egy új JWT tokent.
+A \textit{GetSigningCredentials} függvény egy byte sorozatot térít vissza, ez adja meg a tokenhez szükséges privát kulcsot.
+A \textit{GetClaims} függvény segítségével előkészítjük azokat az információkat, melyeket bele kívánunk helyezni a jelenleg létrehozandó tokenbe.
+Ide tartoznak a fekhasználói jogok, a felhasználói jogokhoz tartozó egyedi azonosítók, továbbá a token lejárati dátuma, melyet egy úgynevezett 
+``Unix timestamp'' formájában tárol a token.
+Továbbá észre vehető az is, hogy ugyanitt létrehozásra kerül egy \textit{refresh token} is, mely egy 7 napos lejárati idővel rendelkezik. Ez gyakorlatilag azt
+jelenti, hogy a felhasználó 7 napig tudja használni a webalkalmazást egyetlen bejelentkezéssel mind amellett, hogy az \textit{access token} folyamatosan frissül
+a lehető legjobb biztonság érdekében.
+A függvény végső részében az adatbázisba is beírásra kerül a refresh token lejárati időpontja, illetve a létrehozott access és refresh token egy DTO segítségével
+visszatérítésre kerül.
 
 \subsection{Globális hibakezelés}
 
-Annak érdekében, hogy a kód átlátható és könnyen karbantartható legyen a hiba és kivételkezelést a projekt egy globális hibakezelő middlware segítéségvel oldja meg, mely részét képezi az application pipeline-nak.
+Annak érdekében, hogy a kód átlátható és könnyen karbantartható legyen a hiba és kivételkezelést a projekt egy globális hibakezelő middlware segítségével oldja meg, mely részét képezi az application pipeline-nak.
 
 Ha ezt a kezelési módszert használjuk, akkor nincs szükség \textit{try - catch} kódblokkok használatára, hiszen ha valamilyen kivétel merül fel, akkor azt elég csak tovább dobni, majd a middleware automatikusan lekezeli. A kezelés során a middleware beállítja a visszatérítendő objektumba a fellépő hiba HTTP státuszkódját, majd a kiindulási pontból dobott hiba üzenetét, mindezt annak érdekében, hogy kliens oldalon könnyen olvasható legyen, hogy egyes hiba miből származhat.
 
@@ -117,9 +148,11 @@ Az alkalmazás felhasználói felületének egy szerves része továbbá a React
 
 A webalkalmazás HTTPS protokollon keresztül kommunikál a szerverrel. A HTTPS protokoll a HTTP protokoll biztonságos formája. Itt a HTTP-vel ellentétben az adatok nem egyszerű szöveges formátumban vannak küldve, hanem kódolt blokkokként, melyek biztosítják azt, hogy út közben egy rosszindulatú harmadik félnek ne legyen hozzáférése bármilyen kommunikációhoz.
 
-Az alkalmazás GET metódusokra az SWR - Data Fetching\cite{swrdocs} könyvtárcsomagot használja. Az SWR rövidítés az angol ``stale-while-revaildate'' szókapcsolatoban ered, mely annyit tesz, hogy ``elavult-közben-újraérvényesít''. Az SWR adatlekérési stratégia alapján egy kérés után előszőr a potenciális elavult adatot megkapjuk egy cache (stale) tároló rendszerből, majd elküldjük a kérést a legfrissebb adatért (revalidate), majd végül előállunk ezzel.
+Az alkalmazás GET metódusokra az SWR - Data Fetching\cite{swrdocs} könyvtárcsomagot használja. Az SWR rövidítés az angol ``stale-while-revaildate'' szókapcsolatból ered, mely annyit tesz, hogy ``elavult-közben-újraérvényesít''. Az SWR adatlekérési stratégia alapján egy kérés után előszőr a potenciális elavult adatot megkapjuk egy cache (stale) tároló rendszerből, majd elküldjük a kérést a legfrissebb adatért (revalidate), majd végül előállunk ezzel.
 
 A könyvtárcsomag lehetőséget biztosít arra is, hogy az adatlekéréssel kapcsolatos státuszokat kezeljük, például kérés alatt töltés ideje, illetve hibákat. Ezt egyszerűen megtehetjük a függvényhívás esetén, amint a \ref{lst:typescript_example}-es kódrészleten is látszik.
+
+\clearpage
 
 \begin{lstlisting}[caption={SWR használata profil adatok lekérésére}, label={lst:typescript_example}]
 const { data: profileInfo, isLoading, error, mutate } = useProfile(userId!);
@@ -172,6 +205,8 @@ const Router = (props: { onLogout: () => void }) => {
 
 Abban az esetben, ha kliens oldalon böngészőn belül nem a megfelelő cím kerül megadásra, úgy a ``NoMatch'' route kerül betöltésre. Ez hasznos, mivel ha a felhasználó egy nem létező oldalt akar betölteni, akkor nem egy érthetetlen hibaüzenet kerül elé, hanem egy általunk felépített érthető visszajelzés.
 
+\clearpage
+
 \subsection{Munkamenetkezelés JWT tokenekkel}
 
 A webalkalmazás biztonságos működését JWT (JSON Web Token)-ek segítik elő. A JWT egy szerkezetileg három részből álló metódusa annak, hogy két fél biztonságosan információt válthasson egymás között. 
@@ -183,6 +218,8 @@ A lejárási idő a webalkalmazás szintjén fontos, mivel ennek függvényében
 Ahhoz, hogy egy jó felhasználói élményt nyújtson a webalkalmazás, két féle tokent használunk. Van access token, illetve refresh token. Az access tokenek magukba foglalnak minden olyan információt és működési elvet, melyet a fentiekben tárgyaltunk. Azért, hogy egy access token lejártakor ne kelljen újra bejelentkeznie a felhasználóknak, refresh tokeneket használ az alkalmazás, melyek adatbázisban tárolva vannak minden felhasználó számára. Ezek segítségével új access tokent lehet generálni, így nem szükségeltetve az újboli bejelentkezést 10 percenként.
 
 A \ref{fig:jwt_auth_process}-es ábra bemutatja a JWT tokenek segítségével vezetett munkamanetkezelés logikáját.
+
+\clearpage
 
 \begin{figure}[h]
   \centering

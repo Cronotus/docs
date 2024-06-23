@@ -97,7 +97,7 @@ Ez látható a \ref{fig:browser_page}-es ábrán is.
 	\label{fig:browser_page}
 \end{figure}
 
-Egy új esemény létrehozása során egy egyszerű űrlapot kell kitöltenie a felasználónak. Itt meglévő sportok közül választhat, az esemény témájaként.
+Egy új esemény létrehozása során egy egyszerű űrlapot kell kitöltenie a felhasználónak. Itt meglévő sportok közül választhat, az esemény témájaként.
 Megfelelő információk, sport, dátum és résztvevőszám megadása után a ``Submit'' gombra kattintás hozhatja létre az általa kívánt eseményt.
 Ez a folyamat látható a \ref{fig:create_event}-as ábrán. Az esemény sikeres létrehozása után megfigyelhetjük, hogy az esemény megjelenik a sportesemény böngészőben is. Itt rákattintás segítségével előhozható
 egy részletesebb nézet. [\ref{fig:new_event_created}-es ábra]
@@ -121,7 +121,7 @@ egy részletesebb nézet. [\ref{fig:new_event_created}-es ábra]
 \end{figure}
 
 Az esemény részletes megjelenítésében látható minden általunk megadott információt. Az eseméy azt is mutatja, hogy ki az esemény szervezője. A szerző nevére
-kattitnva megtekinthető egy rövid leírás a szervező profiljáról. Ez látható a \ref{fig:event_creator}-es ábrán is.
+kattintva megtekinthető egy rövid leírás a szervező profiljáról. Ez látható a \ref{fig:event_creator}-es ábrán is.
 
 \begin{figure}[h]
 	\includegraphics[width=0.5\textwidth]{images/sports_event_creator.png}
@@ -169,8 +169,6 @@ Végső soron a szervező törölheti is az általa szervezett eseményt. Ezt a 
 Ilyenkor egy megerősítendő ablak jelenik meg, amiben ha a ``Yes, delete this event!'' gombra kattintunk, az esemény véglegesen törlése kerül.
 Ezután az oldal átirányít bennünket a böngésző felületre, ahol már nem fogjuk látni az általunk törölt eseményt.
 
-\newpage
-
 \begin{figure}[ht]
 	\includegraphics[width=0.5\textwidth]{images/delete_this_event_1.png}
 	\includegraphics[width=0.5\textwidth]{images/delete_this_event_2.png}
@@ -180,7 +178,7 @@ Ezután az oldal átirányít bennünket a böngésző felületre, ahol már nem
 
 \subsection{Sportesemények szűrése}
 
-A sportesemények böngészése során a felhasználónak lehetősége van kölünböző szűrők használatára.
+A sportesemények böngészése során a felhasználónak lehetősége van különböző szűrők használatára.
 A szűrők segítségével meg lehet határozni egy időintervallumot, amely alatt az eseményeket meg szeretnénk tekinteni, illetve kiválasztható egy
 specifikus sport is, amely alapján lehetősége van a felhasználóknak szűrni az eseményeket.
 
@@ -221,10 +219,10 @@ Ahogyan a \ref{fig:filtered_events}-es ábrán is látható, a szűrők alkalmaz
 \section{Lapszámozás - Pagination}
 
 Annak érdekében, hogy jó teljesítménnyel működhessen a webalkalmazás, szükséges az ú.n. \textit{Pagination}\cite{paginationdocs}, azaz az adatbázisból lekért sportesemények
-szeletekre osztása. Ez azt jelenti, hogy nem fog mindeni felhasználó minden létező eseményt megkapni egy kérés során, hanem csak egy limitált számot,
+szeletekre osztása. Ez azt jelenti, hogy nem fog minden felhasználó minden létező eseményt megkapni egy kérés során, hanem csak egy limitált számot,
 melyek szekvenciális továbbá lekérhetőek.
 
-Az alkalmazás automatikusan 5-ös szeletekre osztja a sporteseményeket, ezek között a lap alján van lehetősége a felhasználónak a navigáálásra. Ez látható a \ref{fig:pagination}-os ábrán.
+Az alkalmazás automatikusan 5-ös szeletekre osztja a sporteseményeket, ezek között a lap alján van lehetősége a felhasználónak a navigálásra. Ez látható a \ref{fig:pagination}-os ábrán.
 
 \begin{figure}[ht]
 	\centering
